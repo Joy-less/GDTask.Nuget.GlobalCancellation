@@ -1,14 +1,24 @@
 ﻿namespace GodotTask.GlobalCancellation;
 
+/// <summary>
+/// Contains methods to access the global cancellation token used by <see cref="GlobalCancellationExtensions.AttachGlobalCancellation(GDTask)"/>.
+/// </summary>
 public static class GlobalCancellationManager {
     private static Tuple<CancellationTokenSource, CancellationToken> globalCancellationTuple = CreateCancellationTuple();
 
-    public static void CancelGlobalCancellationTokenSource() {
+    /// <summary>
+    /// Cancels and replaces the global cancellation token.
+    /// This causes tasks from <see cref="GlobalCancellationExtensions.AttachGlobalCancellation(GDTask)"/> to throw an <see cref="OperationCanceledException"/>.
+    /// </summary>
+    public static void Cancel() {
         Tuple<CancellationTokenSource, CancellationToken> oldGlobalCancellationTuple = Interlocked.Exchange(ref globalCancellationTuple, CreateCancellationTuple());
         oldGlobalCancellationTuple.Item1.Cancel();
         oldGlobalCancellationTuple.Item1.Dispose();
     }
-    public static CancellationToken GetGlobalCancellationToken() {
+    /// <summary>
+    /// Returns the global cancellation token.
+    /// </summary>
+    public static CancellationToken GetToken() {
         return globalCancellationTuple.Item2;
     }
 

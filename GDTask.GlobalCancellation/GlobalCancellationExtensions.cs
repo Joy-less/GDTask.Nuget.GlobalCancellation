@@ -1,20 +1,21 @@
-﻿using System.Runtime.CompilerServices;
+﻿namespace GodotTask.GlobalCancellation;
 
-namespace GodotTask.GlobalCancellation;
-
+/// <summary>
+/// Extension methods for using the global cancellation token.
+/// </summary>
 public static class GlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask"/>.
     /// </summary>
     public static GDTask AttachGlobalCancellation(this GDTask task) {
-        return task.AttachExternalCancellation(GlobalCancellationManager.GetGlobalCancellationToken());
+        return task.AttachExternalCancellation(GlobalCancellationManager.GetToken());
     }
 
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask{T}"/>.
     /// </summary>
     public static GDTask<T> AttachGlobalCancellation<T>(this GDTask<T> task) {
-        return task.AttachExternalCancellation(GlobalCancellationManager.GetGlobalCancellationToken());
+        return task.AttachExternalCancellation(GlobalCancellationManager.GetToken());
     }
 
     /// <summary>
@@ -61,7 +62,7 @@ public static class GlobalCancellationExtensions {
         return RunAwaitableAsync(switchToSynchronizationContextAwaitable).AttachGlobalCancellation();
     }
 
-    /// <summary>
+    /*/// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="IGDTaskAsyncEnumerable{T}"/>.
     /// </summary>
     public static IGDTaskAsyncEnumerable<T> AttachGlobalCancellation<T>(this IGDTaskAsyncEnumerable<T> enumerable)
@@ -80,7 +81,7 @@ public static class GlobalCancellationExtensions {
     where T : allows ref struct
 #endif
     {
-        return new WithGlobalCancellationEnumerable<T>.Enumerator(enumerator, GlobalCancellationManager.GetGlobalCancellationToken());
+        return new WithGlobalCancellationEnumerable<T>.Enumerator(enumerator, GlobalCancellationManager.GetToken());
     }
 
     internal sealed class WithGlobalCancellationEnumerable<T> : IGDTaskAsyncEnumerable<T>
@@ -93,7 +94,7 @@ public static class GlobalCancellationExtensions {
 
         public WithGlobalCancellationEnumerable(IGDTaskAsyncEnumerable<T> source) {
             this.source = source;
-            globalCancellationToken = GlobalCancellationManager.GetGlobalCancellationToken();
+            globalCancellationToken = GlobalCancellationManager.GetToken();
         }
 
         public IGDTaskAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default) {
@@ -121,5 +122,5 @@ public static class GlobalCancellationExtensions {
                 return source.DisposeAsync();
             }
         }
-    }
+    }*/
 }

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+		<VersionPrefix>1.0</VersionPrefix>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+		<RootNamespace>GodotTask.GlobalCancellation</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsAotCompatible>True</IsAotCompatible>
+		<IsTrimmable>true</IsTrimmable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Title>GDTask.GlobalCancellation</Title>
+		<Authors>Joy-less, DE-YU</Authors>
+		<PackageProjectUrl>https://github.com/Joy-less/GDTask.GlobalCancellation</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Joy-less/GDTask.GlobalCancellation</RepositoryUrl>
+		<PackageTags>Godot; GDTask; GodotTask; Task; Async; GlobalCancellation; CancellationToken</PackageTags>
+		<PackageIcon>Logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../Logo.png" Pack="true" PackagePath="/" />
+        <None Include="../README.md" Pack="true" PackagePath="/" />
+        <None Include="../LICENSE.md" Pack="true" PackagePath="/" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GDTask" Version="1.7.0" />
+	</ItemGroup>
+</Project>

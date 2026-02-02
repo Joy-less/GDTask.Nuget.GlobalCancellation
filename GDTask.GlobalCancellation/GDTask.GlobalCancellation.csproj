@@ -24,6 +24,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Title>GDTask.GlobalCancellation</Title>
         <Authors>Joy-less, DE-YU</Authors>
+        <Description>Adds global cancellations to GDTask.Nuget</Description>
         <PackageProjectUrl>https://github.com/Joy-less/GDTask.GlobalCancellation</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/Joy-less/GDTask.GlobalCancellation</RepositoryUrl>

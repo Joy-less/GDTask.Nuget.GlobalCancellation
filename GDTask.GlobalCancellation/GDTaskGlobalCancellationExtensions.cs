@@ -3,19 +3,19 @@
 /// <summary>
 /// Extension methods for using the global cancellation token.
 /// </summary>
-public static class GlobalCancellationExtensions {
+public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask"/>.
     /// </summary>
     public static GDTask AttachGlobalCancellation(this GDTask task) {
-        return task.AttachExternalCancellation(GlobalCancellationManager.GetToken());
+        return task.AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
     }
 
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask{T}"/>.
     /// </summary>
     public static GDTask<T> AttachGlobalCancellation<T>(this GDTask<T> task) {
-        return task.AttachExternalCancellation(GlobalCancellationManager.GetToken());
+        return task.AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
     }
 
     /// <summary>

@@ -29,5 +29,7 @@ tests/metadata.json
 # MacOS
 .DS_Store
 GDTask/nupkg
-GDTask.GlobalCancellation.Tests/reports
-GDTask.GlobalCancellation.Tests/addons/gdUnit4/GdUnitRunner.cfg
+
+# Test results
+reports
+addons/gdUnit4/GdUnitRunner.cfg

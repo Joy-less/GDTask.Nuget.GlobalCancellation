@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Ignore files for repository language
+GDTask.GlobalCancellation.Tests/** linguist-vendored=true

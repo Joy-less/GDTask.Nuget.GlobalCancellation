@@ -70,7 +70,7 @@ public static class GDTaskGlobalCancellationExtensions {
     where T : allows ref struct
 #endif
     {
-        return new WithGlobalCancellationEnumerable<T>(enumerable);
+        return new AttachGlobalCancellationEnumerable<T>(enumerable);
     }
 
     /// <summary>
@@ -81,10 +81,10 @@ public static class GDTaskGlobalCancellationExtensions {
     where T : allows ref struct
 #endif
     {
-        return new WithGlobalCancellationEnumerable<T>.Enumerator(enumerator, GlobalCancellationManager.GetToken());
+        return new AttachGlobalCancellationEnumerable<T>.Enumerator(enumerator, GlobalCancellationManager.GetToken());
     }
 
-    internal sealed class WithGlobalCancellationEnumerable<T> : IGDTaskAsyncEnumerable<T>
+    internal sealed class AttachGlobalCancellationEnumerable<T> : IGDTaskAsyncEnumerable<T>
 #if NET9_0_OR_GREATER
     where T : allows ref struct
 #endif
@@ -92,7 +92,7 @@ public static class GDTaskGlobalCancellationExtensions {
         private readonly IGDTaskAsyncEnumerable<T> source;
         private readonly CancellationToken globalCancellationToken;
 
-        public WithGlobalCancellationEnumerable(IGDTaskAsyncEnumerable<T> source) {
+        public AttachGlobalCancellationEnumerable(IGDTaskAsyncEnumerable<T> source) {
             this.source = source;
             globalCancellationToken = GlobalCancellationManager.GetToken();
         }

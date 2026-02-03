@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-02-03" name="report_1" tests="23" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="GDTaskTest_GlobalCancellation" package="test" timestamp="2026-02-03T00:28:51" hostname="localhost" tests="23" failures="0" errors="0" skipped="0" flaky="0" time="2.860">
+		<testcase name="GDTask_GlobalCancellation" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.292">
+		</testcase>
+		<testcase name="GDTask_GlobalCancellation_Create" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.336">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_Delay" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.130">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_DelayFrame" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.047">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_Yield" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.027">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_NextFrame" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.027">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WaitUntil" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.020">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WaitWhile" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.027">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WaitUntilValueChanged" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.034">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WhenAll" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WhenAllT" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WhenAny" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.034">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_WhenAnyT" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.027">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_CompletionSource" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.020">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_CompletionSourceT" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.020">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_Run" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_RunT" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_Lazy" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_LazyT" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.123">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_Void" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.330">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_ContinueWith" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.330">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_MultipleTasksPartialComplete" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.220">
+		</testcase>
+		<testcase name="GDTask_CancelAllTasks_SwitchToThreadPool" classname="GodotTask.GlobalCancellation.Tests.GDTaskTest_GlobalCancellation" time="0.137">
+		</testcase>
+	</testsuite>
+</testsuites>

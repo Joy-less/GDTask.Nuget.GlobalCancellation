@@ -1,4 +1,6 @@
-﻿namespace GodotTask.GlobalCancellation;
+﻿using Godot;
+
+namespace GodotTask.GlobalCancellation;
 
 /// <summary>
 /// Extension methods for using the global cancellation token.
@@ -60,6 +62,13 @@ public static class GDTaskGlobalCancellationExtensions {
             await switchToSynchronizationContextAwaitable;
         }
         return RunAwaitableAsync(switchToSynchronizationContextAwaitable).AttachGlobalCancellation();
+    }
+
+    /// <summary>
+    /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SignalAwaiter"/>.
+    /// </summary>
+    public static GDTask AttachGlobalCancellation(this SignalAwaiter signalAwaiter) {
+        return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
     }
 
     /*/// <summary>

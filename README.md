@@ -1,6 +1,6 @@
 # GDTask.Nuget.GlobalCancellation
 
-Adds global cancellations to GDTask.Nuget.
+Adds global cancellations to [GDTask.Nuget](https://github.com/Delsin-Yu/GDTask.Nuget).
 
 [![GitHub Release](https://img.shields.io/github/v/release/Joy-less/GDTask.Nuget.GlobalCancellation)](https://github.com/Joy-less/GDTask.Nuget.GlobalCancellation/releases/latest)
 [![NuGet Version](https://img.shields.io/nuget/v/GDTask.GlobalCancellation)](https://www.nuget.org/packages/GDTask.GlobalCancellation)

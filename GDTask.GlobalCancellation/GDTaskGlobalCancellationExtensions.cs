@@ -71,7 +71,7 @@ public static class GDTaskGlobalCancellationExtensions {
         return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
     }
 
-    /*/// <summary>
+    /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="IGDTaskAsyncEnumerable{T}"/>.
     /// </summary>
     public static IGDTaskAsyncEnumerable<T> AttachGlobalCancellation<T>(this IGDTaskAsyncEnumerable<T> enumerable)
@@ -90,7 +90,7 @@ public static class GDTaskGlobalCancellationExtensions {
     where T : allows ref struct
 #endif
     {
-        return new AttachGlobalCancellationEnumerable<T>.Enumerator(enumerator, GlobalCancellationManager.GetToken());
+        return new AttachGlobalCancellationEnumerable<T>.Enumerator(enumerator, GDTaskGlobalCancellationManager.GetToken());
     }
 
     internal sealed class AttachGlobalCancellationEnumerable<T> : IGDTaskAsyncEnumerable<T>
@@ -103,7 +103,7 @@ public static class GDTaskGlobalCancellationExtensions {
 
         public AttachGlobalCancellationEnumerable(IGDTaskAsyncEnumerable<T> source) {
             this.source = source;
-            globalCancellationToken = GlobalCancellationManager.GetToken();
+            globalCancellationToken = GDTaskGlobalCancellationManager.GetToken();
         }
 
         public IGDTaskAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default) {
@@ -131,5 +131,5 @@ public static class GDTaskGlobalCancellationExtensions {
                 return source.DisposeAsync();
             }
         }
-    }*/
+    }
 }

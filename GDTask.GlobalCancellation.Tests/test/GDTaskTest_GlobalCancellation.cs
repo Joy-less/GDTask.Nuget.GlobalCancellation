@@ -272,7 +272,7 @@ public class GDTaskTest_GlobalCancellation {
         Assertions.AssertThat(canceled).IsTrue();
     }
 
-    /*[TestCase, RequireGodotRuntime]
+    [TestCase, RequireGodotRuntime]
     public static async Task GDTask_CancelAllTasks_WhenEach() {
         await Constants.WaitForTaskReadyAsync();
         var canceled = false;
@@ -291,9 +291,9 @@ public class GDTaskTest_GlobalCancellation {
         }
 
         Assertions.AssertThat(canceled).IsTrue();
-    }*/
+    }
 
-    /*[TestCase, RequireGodotRuntime]
+    [TestCase, RequireGodotRuntime]
     public static async Task GDTask_CancelAllTasks_WhenEachT() {
         await Constants.WaitForTaskReadyAsync();
         var canceled = false;
@@ -318,7 +318,7 @@ public class GDTaskTest_GlobalCancellation {
         }
 
         Assertions.AssertThat(canceled).IsTrue();
-    }*/
+    }
 
     [TestCase, RequireGodotRuntime]
     public static async Task GDTask_CancelAllTasks_CompletionSource() {

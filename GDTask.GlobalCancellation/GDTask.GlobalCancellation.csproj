@@ -6,6 +6,9 @@
         <RootNamespace>GodotTask.GlobalCancellation</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
+        <!-- IDE0290: Use primary constructor -->
+        <NoWarn>IDE0290</NoWarn>
     </PropertyGroup>
 
     <PropertyGroup>

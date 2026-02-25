@@ -39,8 +39,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="GDTask" Version="1.7.0" />
-        <PackageReference Include="GodotSharp" Version="4.1.0"/>
-        <PackageReference Include="Godot.SourceGenerators" Version="4.1.0"/>
+        <PackageReference Include="GDTask" Version="2.0.0" />
+        <PackageReference Include="GodotSharp" Version="4.1.0" />
+        <PackageReference Include="Godot.SourceGenerators" Version="4.1.0" />
     </ItemGroup>
 </Project>

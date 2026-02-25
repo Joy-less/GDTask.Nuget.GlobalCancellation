@@ -8,6 +8,7 @@ namespace GodotTask.GlobalCancellation.Tests;
 public class GDTaskTest_GlobalCancellation {
     [TestCase, RequireGodotRuntime]
     public static async Task GDTask_GlobalCancellation() {
+        await Constants.WaitForTaskReadyAsync();
         var number = 0;
         async GDTask delayIncrementNumberTwice() {
             await GDTask.Delay(TimeSpan.FromSeconds(0.2)).AttachGlobalCancellation();
@@ -32,6 +33,7 @@ public class GDTaskTest_GlobalCancellation {
 
     [TestCase, RequireGodotRuntime]
     public static async Task GDTask_GlobalCancellation_Create() {
+        await Constants.WaitForTaskReadyAsync();
         var number = 0;
         var canceled = false;
         try {

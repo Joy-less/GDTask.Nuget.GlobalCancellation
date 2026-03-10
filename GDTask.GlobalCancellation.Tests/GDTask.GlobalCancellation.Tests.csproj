@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../GDTask.GlobalCancellation/GDTask.GlobalCancellation.csproj" />
-    <PackageReference Include="GDTask" Version="2.0.1" />
+    <PackageReference Include="GDTask" Version="2.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
     <PackageReference Include="gdUnit4.analyzers" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>

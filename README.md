@@ -13,11 +13,12 @@ Adds global cancellations to [GDTask.Nuget](https://github.com/Delsin-Yu/GDTask.
 ```cs
 _ = GDTask.Create(async () => {
     GD.Print(1);
+    await GDTask.Delay(TimeSpan.FromSeconds(1.0), GDTaskGlobalCancellation.GetToken());
     await GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
     GD.Print(2);
 });
 
-GDTaskGlobalCancellationManager.Cancel();
+GDTaskGlobalCancellation.Cancel();
 ```
 ```
 1

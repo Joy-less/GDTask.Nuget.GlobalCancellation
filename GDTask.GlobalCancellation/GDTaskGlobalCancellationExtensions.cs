@@ -10,14 +10,14 @@ public static class GDTaskGlobalCancellationExtensions {
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask"/>.
     /// </summary>
     public static GDTask AttachGlobalCancellation(this GDTask task) {
-        return task.AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
+        return task.AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
 
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask{T}"/>.
     /// </summary>
     public static GDTask<T> AttachGlobalCancellation<T>(this GDTask<T> task) {
-        return task.AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
+        return task.AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public static class GDTaskGlobalCancellationExtensions {
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SignalAwaiter"/>.
     /// </summary>
     public static GDTask AttachGlobalCancellation(this SignalAwaiter signalAwaiter) {
-        return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellationManager.GetToken());
+        return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
 
     /// <summary>
@@ -90,7 +90,7 @@ public static class GDTaskGlobalCancellationExtensions {
     where T : allows ref struct
 #endif
     {
-        return new AttachGlobalCancellationEnumerable<T>.Enumerator(enumerator, GDTaskGlobalCancellationManager.GetToken());
+        return new AttachGlobalCancellationEnumerable<T>.Enumerator(enumerator, GDTaskGlobalCancellation.GetToken());
     }
 
     internal sealed class AttachGlobalCancellationEnumerable<T> : IGDTaskAsyncEnumerable<T>
@@ -103,7 +103,7 @@ public static class GDTaskGlobalCancellationExtensions {
 
         public AttachGlobalCancellationEnumerable(IGDTaskAsyncEnumerable<T> source) {
             this.source = source;
-            globalCancellationToken = GDTaskGlobalCancellationManager.GetToken();
+            globalCancellationToken = GDTaskGlobalCancellation.GetToken();
         }
 
         public IGDTaskAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default) {

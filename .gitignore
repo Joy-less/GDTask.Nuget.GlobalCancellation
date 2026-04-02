@@ -426,3 +426,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# GdUnit Tests
+GDTask.GlobalCancellation.Tests/reports
+GDTask.GlobalCancellation.Tests/addons/gdUnit4/GdUnitRunner.cfg

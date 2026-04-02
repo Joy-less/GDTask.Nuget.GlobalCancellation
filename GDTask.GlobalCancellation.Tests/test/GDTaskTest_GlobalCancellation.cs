@@ -21,7 +21,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = delayIncrementNumberTwice();
             await GDTask.Delay(TimeSpan.FromSeconds(0.3)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -44,7 +44,7 @@ public class GDTaskTest_GlobalCancellation {
                 number++;
             });
             await GDTask.Delay(TimeSpan.FromSeconds(0.3)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -62,7 +62,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -79,7 +79,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = GDTask.DelayFrame(100).AttachGlobalCancellation();
             await GDTask.DelayFrame(2).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -100,7 +100,7 @@ public class GDTaskTest_GlobalCancellation {
                 }
             });
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -121,7 +121,7 @@ public class GDTaskTest_GlobalCancellation {
                 }
             });
             await GDTask.NextFrame().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -139,7 +139,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = GDTask.WaitUntil(() => condition).AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -157,7 +157,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = GDTask.WaitWhile(() => condition).AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -175,7 +175,7 @@ public class GDTaskTest_GlobalCancellation {
         try {
             var task = GDTask.WaitUntilValueChanged(testValue, x => x.Value).AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -195,7 +195,7 @@ public class GDTaskTest_GlobalCancellation {
             var task3 = GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
             var whenAllTask = GDTask.WhenAll(task1, task2, task3).AttachGlobalCancellation();
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await whenAllTask;
         }
         catch (OperationCanceledException) {
@@ -220,7 +220,7 @@ public class GDTaskTest_GlobalCancellation {
             });
             var whenAllTask = GDTask.WhenAll(task1, task2).AttachGlobalCancellation();
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await whenAllTask;
         }
         catch (OperationCanceledException) {
@@ -239,7 +239,7 @@ public class GDTaskTest_GlobalCancellation {
             var task2 = GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
             var whenAnyTask = GDTask.WhenAny(task1, task2).AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await whenAnyTask;
         }
         catch (OperationCanceledException) {
@@ -264,7 +264,7 @@ public class GDTaskTest_GlobalCancellation {
             });
             var whenAnyTask = GDTask.WhenAny(task1, task2).AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await whenAnyTask;
         }
         catch (OperationCanceledException) {
@@ -283,7 +283,7 @@ public class GDTaskTest_GlobalCancellation {
             var task2 = GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
             var whenEachEnumerable = GDTask.WhenEach(task1, task2).AttachGlobalCancellation().GetAsyncEnumerator();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             while (await whenEachEnumerable.MoveNextAsync()) {
                 _ = whenEachEnumerable.Current;
             }
@@ -310,7 +310,7 @@ public class GDTaskTest_GlobalCancellation {
             });
             var whenEachEnumerable = GDTask.WhenEach(task1, task2).AttachGlobalCancellation().GetAsyncEnumerator();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             while (await whenEachEnumerable.MoveNextAsync()) {
                 _ = whenEachEnumerable.Current;
             }
@@ -330,7 +330,7 @@ public class GDTaskTest_GlobalCancellation {
             var source = new GDTaskCompletionSource();
             var task = source.Task.AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -348,7 +348,7 @@ public class GDTaskTest_GlobalCancellation {
             var source = new GDTaskCompletionSource<int>();
             var task = source.Task.AttachGlobalCancellation();
             await GDTask.Yield().AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -367,7 +367,7 @@ public class GDTaskTest_GlobalCancellation {
                 await GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();
             });
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -387,7 +387,7 @@ public class GDTaskTest_GlobalCancellation {
                 return 42;
             });
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -407,7 +407,7 @@ public class GDTaskTest_GlobalCancellation {
             });
             var task = lazyTask.Task;
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -428,7 +428,7 @@ public class GDTaskTest_GlobalCancellation {
             });
             var task = lazyTask.Task;
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -455,7 +455,7 @@ public class GDTaskTest_GlobalCancellation {
         });
 
         await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-        GDTaskGlobalCancellationManager.Cancel();
+        GDTaskGlobalCancellation.Cancel();
         await GDTask.Delay(TimeSpan.FromSeconds(0.2)).AttachGlobalCancellation();
 
         Assertions.AssertThat(canceled).IsTrue();
@@ -478,7 +478,7 @@ public class GDTaskTest_GlobalCancellation {
                 .ContinueWith(() => secondCompleted = true);
 
             await GDTask.Delay(TimeSpan.FromSeconds(0.3)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {
@@ -535,7 +535,7 @@ public class GDTaskTest_GlobalCancellation {
             });
 
             await GDTask.Delay(TimeSpan.FromSeconds(0.2)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
 
             await GDTask.WhenAll(
                 task1.SuppressCancellationThrow(),
@@ -569,7 +569,7 @@ public class GDTaskTest_GlobalCancellation {
             });
 
             await GDTask.Delay(TimeSpan.FromSeconds(0.1)).AttachGlobalCancellation();
-            GDTaskGlobalCancellationManager.Cancel();
+            GDTaskGlobalCancellation.Cancel();
             await task;
         }
         catch (OperationCanceledException) {

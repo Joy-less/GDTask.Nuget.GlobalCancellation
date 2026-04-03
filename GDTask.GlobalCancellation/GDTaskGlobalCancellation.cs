@@ -1,7 +1,7 @@
 ﻿namespace GodotTask.GlobalCancellation;
 
 /// <summary>
-/// Contains methods to access the global cancellation token used by <see cref="GDTaskGlobalCancellationExtensions.AttachGlobalCancellation(GDTask)"/>.
+/// Contains methods to access the global cancellation token used for cancelling <see cref="GDTask"/>s in bulk.
 /// </summary>
 public static class GDTaskGlobalCancellation {
     private static Tuple<CancellationTokenSource, CancellationToken> globalCancellationTuple = CreateCancellationTuple();

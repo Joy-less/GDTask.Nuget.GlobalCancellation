@@ -9,6 +9,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the task itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the task if you want the task to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this GDTask task) {
         return task.AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
@@ -16,6 +19,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask{T}"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the task itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the task if you want the task to stop running.
+    /// </remarks>
     public static GDTask<T> AttachGlobalCancellation<T>(this GDTask<T> task) {
         return task.AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
@@ -23,6 +29,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="GDTask.DeferredAwaitable"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaitable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaitable if you want the awaitable to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this GDTask.DeferredAwaitable deferredAwaitable) {
         return deferredAwaitable.ToGDTask().AttachGlobalCancellation();
     }
@@ -30,6 +39,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="YieldAwaitable"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaitable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaitable if you want the awaitable to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this YieldAwaitable yieldAwaitable) {
         return yieldAwaitable.ToGDTask().AttachGlobalCancellation();
     }
@@ -37,6 +49,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SwitchToMainThreadAwaitable"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaitable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaitable if you want the awaitable to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this SwitchToMainThreadAwaitable switchToMainThreadAwaitable) {
         static async GDTask RunAwaitableAsync(SwitchToMainThreadAwaitable switchToMainThreadAwaitable) {
             await switchToMainThreadAwaitable;
@@ -47,6 +62,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SwitchToThreadPoolAwaitable"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaitable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaitable if you want the awaitable to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this SwitchToThreadPoolAwaitable switchToThreadPoolAwaitable) {
         static async GDTask RunAwaitableAsync(SwitchToThreadPoolAwaitable switchToThreadPoolAwaitable) {
             await switchToThreadPoolAwaitable;
@@ -57,6 +75,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SwitchToSynchronizationContextAwaitable"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaitable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaitable if you want the awaitable to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this SwitchToSynchronizationContextAwaitable switchToSynchronizationContextAwaitable) {
         static async GDTask RunAwaitableAsync(SwitchToSynchronizationContextAwaitable switchToSynchronizationContextAwaitable) {
             await switchToSynchronizationContextAwaitable;
@@ -67,6 +88,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="SignalAwaiter"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the awaiter itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaiter if you want the awaiter to stop running.
+    /// </remarks>
     public static GDTask AttachGlobalCancellation(this SignalAwaiter signalAwaiter) {
         return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
@@ -74,6 +98,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="IGDTaskAsyncEnumerable{T}"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the enumerable itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the enumerable if you want the enumerable to stop running.
+    /// </remarks>
     public static IGDTaskAsyncEnumerable<T> AttachGlobalCancellation<T>(this IGDTaskAsyncEnumerable<T> enumerable)
 #if NET9_0_OR_GREATER
     where T : allows ref struct
@@ -85,6 +112,9 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <summary>
     /// Attaches the global <see cref="CancellationToken"/> to the given <see cref="IGDTaskAsyncEnumerator{T}"/>.
     /// </summary>
+    /// <remarks>
+    /// Note: This will not affect the enumerator itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the enumerator if you want the enumerator to stop running.
+    /// </remarks>
     public static IGDTaskAsyncEnumerator<T> AttachGlobalCancellation<T>(this IGDTaskAsyncEnumerator<T> enumerator)
 #if NET9_0_OR_GREATER
     where T : allows ref struct

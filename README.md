@@ -11,7 +11,7 @@ Adds global cancellations to [GDTask.Nuget](https://github.com/Delsin-Yu/GDTask.
 ## Usage
 
 ```cs
-_ = GDTask.Create(async () => {
+GDTask.Void(async () => {
     GD.Print(1);
     await GDTask.Delay(TimeSpan.FromSeconds(1.0), GDTaskGlobalCancellation.GetToken());
     await GDTask.Delay(TimeSpan.FromSeconds(1.0)).AttachGlobalCancellation();

@@ -91,7 +91,7 @@ public static class GDTaskGlobalCancellationExtensions {
     /// <remarks>
     /// Note: This will not affect the awaiter itself. Pass <see cref="GDTaskGlobalCancellation.GetToken()"/> to the awaiter if you want the awaiter to stop running.
     /// </remarks>
-    public static GDTask AttachGlobalCancellation(this SignalAwaiter signalAwaiter) {
+    public static GDTask<Variant[]> AttachGlobalCancellation(this SignalAwaiter signalAwaiter) {
         return signalAwaiter.AsGDTask().AttachExternalCancellation(GDTaskGlobalCancellation.GetToken());
     }
 
